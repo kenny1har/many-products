@@ -1,0 +1,13 @@
+<template name="homeView">
+	{{#if currentUser}}
+		<a href="{{pathFor 'createCategory'}}">Create Category</a>
+		<br />
+		<a href="{{pathFor 'createProduct'}}">Create Product</a>
+		<br />
+		<br />
+	{{/if}}
+	<div>List sites:</div>
+	{{#each usersList}}
+		<div><a href="/{{_id}}">{{emails.0.address}}</a></div>
+	{{/each}}
+</template>

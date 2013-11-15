@@ -1,0 +1,6 @@
+<template name="userView">
+	<div>Categories:</div>
+	{{#each categories}}
+		<div><a href="{{pathFor 'viewCategory'}}">{{name}}</a></div>
+	{{/each}}
+</template>

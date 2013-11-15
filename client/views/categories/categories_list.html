@@ -1,0 +1,14 @@
+<template name="categoriesList">
+	<div class="categories">
+		<table class="table table-condensed table-striped">
+			<thead>
+				<th>Name</th>
+			</thead>
+			<tbody>
+				{{#each categories}}
+					{{> categoryItem}}
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>

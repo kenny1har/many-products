@@ -1,0 +1,16 @@
+<template name="productsList">
+	<div class="products">
+		<table class="table table-condensed table-striped">
+			<thead>
+				<th>Name</th>
+				<th>Category</th>
+				<th>&nbsp;</th>
+			</thead>
+			<tbody>
+				{{#each products}}
+					{{> productItem}}
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>

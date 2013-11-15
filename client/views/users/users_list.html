@@ -1,0 +1,14 @@
+<template name="usersList">
+	<div class="users">
+		<table class="table table-condensed table-striped">
+			<thead>
+				<th>Name</th>
+			</thead>
+			<tbody>
+				{{#each users}}
+					{{> productItem}}
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>

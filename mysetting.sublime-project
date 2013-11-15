@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "M:\\many-products",
+			"folder_exclude_patterns": [".meteor"]
+		}
+	]
+}

@@ -1,0 +1,15 @@
+<template name="layout">
+<head>
+	<title>tokofbku</title>
+</head>
+
+<body>
+	<div class="container">
+		{{yield 'myHeader'}}
+		{{yield 'myErrors'}}
+		<div id="main" class="row-fluid">
+			{{yield}}
+		</div>
+	</div>
+</body>
+</template>
