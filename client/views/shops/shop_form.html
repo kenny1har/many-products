@@ -1,17 +1,14 @@
-<template name="categoryForm">
+<template name="shopForm">
 	<form>
-		{{#with shop}}
-			<input type="hidden" name="shopId" value="{{_id}}" />
-		{{/with}}
 		<table cellpadding="0" cellspacing="0">
 			<tr valign="top">
 				<td>
-					<label for="categoryName">Category Name <span class="mandatory">*</span></label>
+					<label for="shopName">Shop Name <span class="mandatory">*</span></label>
 				</td>
 				<td>:
 				</td>
 				<td>
-					<input type="text" id="categoryName" name="categoryName" style="width: 50px;" maxlength="100">
+					<input type="text" id="shopName" name="shopName" style="width: 50px;" maxlength="100">
 				</td>
 			</tr>
 			<tr valign="top">

@@ -1,4 +1,8 @@
 <template name="categoryCreate">
+	{{#with shop}}
+		<h2>{{name}}</h2>
+	{{/with}}
+	<a href="{{pathFor 'createShop'}}">back to shop manager</a><br />
 	{{> categoryForm}}
 	{{> categoriesList}}
 </template>

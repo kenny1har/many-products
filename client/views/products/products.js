@@ -4,11 +4,11 @@ Template.productForm.events({
 		var user = Meteor.user();
 		if (!user)
 			throwError("You need to login to post new product.");
-		var category = getCategory($(event.target).find('[name=categoryId]').val());
+		var category = getCategory($(event.target).find('[name=categoryId]').val()).fetch()[0];
 		var product = {
 			name: $(event.target).find('[name=productName]').val(),
 			categoryId: category._id
-		}
+		};
 		Meteor.call('postProduct', product, function(error, id) {
 			if (error)
 				throwError(error.reason);

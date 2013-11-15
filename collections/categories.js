@@ -4,8 +4,15 @@ Meteor.methods({
 		var user = Meteor.user();
 		if (!user)
 			throw new Meteor.Error(401, "You need to login to post new category.");
+		var shop = Shops.findOne(postAttributes.shopId);
+		if (!shop)
+			throw new Meteor.Error(401, "This shop has been deleted.");
+		if (shop.userId != user._id)
+			throw new Meteor.Error(401, "This shop is not yours.");
+
 		var category = _.extend(_.pick(postAttributes, 'name'), {
 			userId: user._id,
+			shopId: shop._id,
 			submitted: new Date().getTime()
 		});
 		Categories.insert(category);

@@ -1,0 +1,14 @@
+<template name="shopsList">
+	<div class="shops">
+		<table class="table table-condensed table-striped">
+			<thead>
+				<th>Name</th>
+			</thead>
+			<tbody>
+				{{#each shops}}
+					{{> shopItem}}
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>

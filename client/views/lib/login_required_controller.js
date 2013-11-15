@@ -6,5 +6,6 @@ LoginRequiredController = RouteController.extend ({
 		} else if (! Meteor.user()) {
 			this.redirect('home');
 		}
+		// this.render();
 	}
 });

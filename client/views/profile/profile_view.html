@@ -1,0 +1,13 @@
+<template name="viewProfile">
+	<h2>Profile</h2>
+	<br />
+	<form>
+		Email: {{email}}
+		<br />
+		{{#with profile}}
+		Name: <input type="text" name="name" value="{{name}}" />
+		{{/with}}
+		<br />
+		<input type="submit" value="Update" class="btn btn-primary" />
+	</form>
+</template>

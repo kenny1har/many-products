@@ -1,23 +1,29 @@
-ProductCreateController = RouteController.extend({
+ProductCreateController = LoginRequiredController.extend({
 	template: 'productCreate',
 	before: function() {
-		if (Meteor.user()) {
-			Meteor.subscribe('get_categories', Meteor.user()._id);
-			Meteor.subscribe('get_products_by_user', Meteor.user()._id);
-		}
+		this.subscribe('get_category', this.params._id).wait();
+		this.subscribe('get_categories', getCategory(this.params._id).fetch()[0].shopId).wait();
+		this.subscribe('get_products_by_shop', getCategory(this.params._id).fetch()[0].shopId).wait();
+		this.subscribe('get_shop', getCategory(this.params._id).fetch()[0].shopId);
 	},
-	data: {
-		categories: function() {
-			if (Meteor.user())
-				return getCategories(Meteor.user()._id);
-		},
-		products: function() {
-			if (Meteor.user())
-				return getProductsByUser(Meteor.user()._id).map(function(product) {
-					product.categoryName = Categories.findOne(product.categoryId).name;
+	data: function() {
+		var params = this.params;
+		var category = getCategory(params._id).fetch()[0];
+		var data = {
+			categories: function() {
+				return getCategories(category.shopId);
+			},
+			products: function() {
+				return getProductsByShop(category.shopId).map(function(product) {
+					product.categoryName = getCategory(product.categoryId).fetch()[0].name;
 					return product;
 				});
-		}
+			},
+			shop: function() {
+				return getShop(category.shopId).fetch()[0];
+			}
+		};
+		return data;
 	},
 	after: function() {
 		Meteor.setTimeout(function() {
@@ -26,5 +32,24 @@ ProductCreateController = RouteController.extend({
 	}
 });
 ProductViewController = RouteController.extend({
-	template: 'productsView'
+	template: 'productsView',
+	before: function() {
+		this.subscribe('get_category', this.params.categoryId).wait();
+		this.subscribe('get_products_by_category', this.params._id).wait();
+	},
+	data: function() {
+		var params = this.params;
+		var data = {
+			category: function() {
+				return getCategory(Meteor.user()._id).fetch()[0];
+			},
+			products: function() {
+				return getProductsByCategory(params._id).map(function(product) {
+					product.categoryName = Categories.findOne(product.categoryId).name;
+					return product;
+				});
+			}
+		};
+		return data;
+	}
 });

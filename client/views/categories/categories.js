@@ -8,7 +8,8 @@ Template.categoryForm.events({
 	'submit form': function(event) {
 		event.preventDefault();
 		var category = {
-			name: $(event.target).find('[name=categoryName]').val()
+			name: $(event.target).find('[name=categoryName]').val(),
+			shopId: $(event.target).find('[name=shopId]').val()
 		}
 		Meteor.call('postCategory', category, function(error, id) {
 			if (error)

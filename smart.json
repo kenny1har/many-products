@@ -4,6 +4,7 @@
     "spin": {},
     "errors": {},
     "accounts-ui-bootstrap-dropdown": {},
-    "iron-router": {}
+    "iron-router": {},
+    "profile": {}
   }
 }

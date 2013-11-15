@@ -6,7 +6,8 @@
       "spin": {},
       "errors": {},
       "accounts-ui-bootstrap-dropdown": {},
-      "iron-router": {}
+      "iron-router": {},
+      "profile": {}
     },
     "packages": {
       "router": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.1",
         "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+      },
+      "profile": {
+        "git": "https://github.com/BeDifferential/meteor-profile.git",
+        "tag": "v0.0.3",
+        "commit": "a69faf31c15a2722e75b4cc557d4181c22a9f117"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

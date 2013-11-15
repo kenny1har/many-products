@@ -1,0 +1,11 @@
+<template name="shopsView">
+	{{#with user}}
+		<a href="{{pathFor 'viewUser'}}">{{email}}</a>
+	{{/with}}
+	<h2>{{shopName}}</h2>
+	<div class="shops">
+		{{#each shops}}
+			{{> shopThumbnail}}
+		{{/each}}
+	</div>
+</template>

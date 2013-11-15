@@ -12,24 +12,36 @@ Router.map(function () {
 		path: '/',
 		controller: 'HomeController'
 	});
+	this.route('createShop', {
+		path: '/createShop',
+		controller: 'ShopCreateController'
+	});
 	this.route('createCategory', {
-		path: '/createCategory',
+		path: '/createCategory/:_id',
 		controller: 'CategoryCreateController'
 	});
 	this.route('createProduct', {
-		path: '/createProduct',
+		path: '/createProduct/:_id',
 		controller: 'ProductCreateController'
 	});
+	this.route('profile', {
+		path: '/profile',
+		controller: 'ProfileController'
+	});
+	this.route('viewUser', {
+		path: '/user/:_id',
+		controller: 'UserViewController'
+	});
 	this.route('viewProduct', {
-		path: '/:userId/:categoryId/:_id',
+		path: '/:shopId/:categoryId/:_id',
 		controller: 'ProductViewController'
 	});
 	this.route('viewCategory', {
-		path: '/:userId/:_id',
+		path: '/:shopId/:_id',
 		controller: 'CategoryViewController'
 	});
-	this.route('viewUser', {
+	this.route('viewShop', {
 		path: '/:_id',
-		controller: 'UserViewController'
+		controller: 'ShopViewController'
 	});
 });
