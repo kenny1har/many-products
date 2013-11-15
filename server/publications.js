@@ -5,7 +5,10 @@ Meteor.publish('get_shop', function(shopId) {
 	return getShop(shopId);
 });
 Meteor.publish('get_shops', function(userId) {
-	return getShops(userId);
+	return getShops();
+});
+Meteor.publish('get_shops_by_user', function(userId) {
+	return getShopsByUser(userId);
 });
 Meteor.publish('get_category', function(categoryId) {
 	return getCategory(categoryId);

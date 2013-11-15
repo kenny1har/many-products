@@ -3,8 +3,8 @@
 		<a href="{{pathFor 'createShop'}}">Create Shop</a>
 	{{/if}}
 	<br /><br />
-	<div>List sites:</div>
-	{{#each usersList}}
-		<div><a href="/{{_id}}">{{emails.0.address}}</a></div>
+	<div>List shops:</div>
+	{{#each shops}}
+		<div><a href="{{pathFor 'viewShop'}}">{{name}}</a></div>
 	{{/each}}
 </template>

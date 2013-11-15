@@ -1,14 +1,12 @@
 HomeController = RouteController.extend({
 	template: 'homeView',
 	before: function() {
-		Meteor.subscribe('users', 10);
+		this.subscribe('get_shops').wait();
 	},
 	data: {
-		usersList: function() {
-			return Meteor.users.find();
-		},
-		usersCount: function() {
-			return Meteor.users.find().count();
+		title: 'TokoFBkita',
+		shops: function() {
+			return getShops();
 		}
 	}
 });

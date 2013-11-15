@@ -1,11 +1,11 @@
 <template name="shopsView">
-	{{#with user}}
-		<a href="{{pathFor 'viewUser'}}">{{email}}</a>
+	Hello
+	{{#with shop}}
+		<h2>{{name}}</h2>
 	{{/with}}
-	<h2>{{shopName}}</h2>
-	<div class="shops">
-		{{#each shops}}
-			{{> shopThumbnail}}
+	<div class="categories">
+		{{#each categories}}
+			<div><a href="{{pathFor 'viewCategory'}}">{{name}}</a></div>
 		{{/each}}
 	</div>
 </template>

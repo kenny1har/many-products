@@ -7,6 +7,7 @@ CategoryCreateController = LoginRequiredController.extend({
 	data: function() {
 		var params = this.params;
 		var data = {
+			title: 'Create Categories',
 			categories: function() {
 				return getCategories(params._id);
 			},
@@ -30,9 +31,12 @@ CategoryViewController = RouteController.extend({
 	},
 	data: function() {
 		var params = this.params;
+		var category = getCategory(params._id).fetch()[0];
 		var data = {
+			title: function() {
+				return category.name + ' - View Category';
+			},
 			categoryName: function() {
-				var category = getCategory(params._id).fetch()[0];
 				return category.name;
 			},
 			products: function() {

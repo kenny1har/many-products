@@ -10,6 +10,7 @@ ProductCreateController = LoginRequiredController.extend({
 		var params = this.params;
 		var category = getCategory(params._id).fetch()[0];
 		var data = {
+			title: 'Create Products',
 			categories: function() {
 				return getCategories(category.shopId);
 			},
@@ -39,15 +40,19 @@ ProductViewController = RouteController.extend({
 	},
 	data: function() {
 		var params = this.params;
+		var product = getProductsByCategory(params._id).map(function(product) {
+						product.categoryName = Categories.findOne(product.categoryId).name;
+						return product;
+					});
 		var data = {
+			title: function() {
+				return product.name + ' - View Product'
+			},
 			category: function() {
 				return getCategory(Meteor.user()._id).fetch()[0];
 			},
 			products: function() {
-				return getProductsByCategory(params._id).map(function(product) {
-					product.categoryName = Categories.findOne(product.categoryId).name;
-					return product;
-				});
+				return product;
 			}
 		};
 		return data;
