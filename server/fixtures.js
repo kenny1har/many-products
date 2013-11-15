@@ -1,10 +1,10 @@
-Accounts.onCreateUser(function(option, user) {
+Accounts.onCreateUser(function(options, user) {
 	if (!options.profile)
-		option.profile = {
+		options.profile = {
 			name: ''
 		};
-	if (option.profile.name == '')
-		option.profile.name = '(blank)';
+	if (options.profile.name == '')
+		options.profile.name = '(blank)';
 
 	if (options.profile)
 		user.profile = options.profile;
